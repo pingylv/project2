@@ -48,3 +48,10 @@ get '/details/:post_id' do
 
 	erb :details
 end
+
+post '/details/:post_id' do
+	post_id = params[:post_id]
+	content = params[:content]	
+
+	erb "you commented: #{content} for post: #{post_id}"
+end
