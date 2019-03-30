@@ -30,6 +30,10 @@ end
 
 post '/new' do
 	content = params[:content]	
+	if content.length <= 0
+		@error = 'Enter something to post!'
+		return erb :new
+	end
 	erb "rly bro u typed #{content} YIKES bro thats so cringe"	
 
 end
