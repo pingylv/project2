@@ -22,7 +22,8 @@ configure do
 	@db.execute 'CREATE TABLE IF NOT EXISTS comments (
 	id	INTEGER PRIMARY KEY AUTOINCREMENT,
 	created_date	TEXT,
-	content	TEXT) '
+	content	TEXT
+	post_id INTEGER) '
 
 end
 
