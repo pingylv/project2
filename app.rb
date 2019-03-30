@@ -53,6 +53,8 @@ get '/details/:post_id' do
 	results = @db.execute 'select * from posts where id = ?', [post_id]
 	@row = results[0]
 
+	@comments = @db.execute 'select * from comments where post_id = ? order by id', [post_id]
+
 	erb :details
 end
 
@@ -62,5 +64,5 @@ post '/details/:post_id' do
 
 	@db.execute 'insert into comments (content, created_date, post_id) values (?, datetime(), ?)', [content, post_id]
 
-	erb "you commented: #{content} for post: #{post_id}"
+	redirect to('/details/'+post_id)
 end
