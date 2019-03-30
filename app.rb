@@ -25,6 +25,11 @@ configure do
 	content	TEXT,
 	post_id INTEGER); '
 
+	@db.execute 'CREATE TABLE IF NOT EXISTS users (
+	id	INTEGER PRIMARY KEY AUTOINCREMENT,
+	username	TEXT,
+	post_id INTEGER); '
+
 end
 
 get '/' do
