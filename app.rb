@@ -33,10 +33,9 @@ post '/new' do
 	content = params[:content]	
 	if content.length <= 0
 		@error = 'Enter something to post!'
-		return erb :new
+		return erb :new	
 	end
 
 	@db.execute 'insert into posts (content, created_date) values (?, datetime())', [content]
-	erb "rly bro u typed #{content} YIKES bro thats so cringe"	
-
+	redirect to '/'
 end
