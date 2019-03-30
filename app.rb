@@ -9,3 +9,9 @@ end
 get '/new' do
 	erb :new		
 end
+
+post '/new' do
+	content = params[:content]	
+	erb "rly bro u typed #{content} YIKES bro thats so cringe"	
+
+end
